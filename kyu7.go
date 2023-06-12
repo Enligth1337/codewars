@@ -7,6 +7,7 @@ import (
 	"unicode"
 )
 
+//https://www.codewars.com/kata/559590633066759614000063
 func MinMax(arr []int) [2]int {
 	//mm := map[string]int{"min": arr[0], "max": arr[0]}
 	//for _, a := range arr {

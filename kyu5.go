@@ -1,5 +1,7 @@
 package main
 
+import "sort"
+
 //https://www.codewars.com/kata/559a28007caad2ac4e000083
 func Perimeter(n int) int {
 	// your code
@@ -23,4 +25,20 @@ func Perimeter(n int) int {
 		res += edge * 4
 	}
 	return res
+}
+
+//https://www.codewars.com/kata/525c65e51bf619685c000059
+func Cakes(recipe, available map[string]int) int {
+	var cnt []int
+	for i, _ := range recipe {
+		if j, ok := available[i]; ok {
+			j = j / recipe[i]
+			cnt = append(cnt, j)
+		} else {
+			return 0
+		}
+
+	}
+	sort.Ints(cnt)
+	return cnt[0]
 }
