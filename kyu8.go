@@ -94,3 +94,13 @@ func SmallestIntegerFinder(numbers []int) int {
 	sort.Ints(numbers)
 	return numbers[0] // your code here
 }
+
+//https://www.codewars.com/kata/56fa3c5ce4d45d2a52001b3c/train/go
+func Xor(a, b bool) bool {
+	// your code here:
+	if a != b {
+		return true
+	} else {
+		return false
+	}
+}

@@ -1,5 +1,10 @@
 package main
 
+import (
+	"fmt"
+	"strings"
+)
+
 func main() {
 	//fmt.Println(Decode("IX"))
 	//fmt.Println(Decode("MMVIII"))
@@ -55,6 +60,18 @@ func main() {
 	//fmt.Println(SmallestIntegerFinder([]int{1, 23, 481}))
 	//https://www.codewars.com/kata/525c65e51bf619685c000059
 	//fmt.Println(Cakes(map[string]int{"flour": 500, "sugar": 200, "eggs": 1}, map[string]int{"flour": 1200, "sugar": 1200, "eggs": 5, "milk": 200}))
+	//fmt.Println(consVal("zodiacs"))
+
+	fmt.Println(Xor(false, true))
 
 }
 
+func consVal(s string) int {
+	alphabet := "abcdefghijklmnopqrstuvwxyz"
+
+	for i, _ := range s {
+		index := strings.IndexByte(alphabet, s[i])
+		fmt.Println(index)
+	}
+	return 0
+}
