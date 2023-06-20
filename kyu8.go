@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"sort"
 	"strconv"
 	"strings"
@@ -93,4 +94,25 @@ func multipleOfIndex(ints []int) []int {
 func SmallestIntegerFinder(numbers []int) int {
 	sort.Ints(numbers)
 	return numbers[0] // your code here
+}
+
+//https://www.codewars.com/kata/588417e576933b0ec9000045
+func seatsInTheater(nCols int, nRows int, col int, row int) int {
+	return (nCols - col + 1) * (nRows - row)
+}
+
+//https://www.codewars.com/kata/57e76bc428d6fbc2d500036d
+func StringToArray(str string) (res []string) {
+	res = strings.Split(str, " ")
+	return
+}
+
+//https://www.codewars.com/kata/582cb0224e56e068d800003c
+func Litres(time float64) int {
+	return int(time * 0.5)
+}
+
+//https://www.codewars.com/kata/5963c18ecb97be020b0000a2
+func Derive(a, b int) string {
+	return fmt.Sprintf("%dx^%d", a*b, b-1)
 }

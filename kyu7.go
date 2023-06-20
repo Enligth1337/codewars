@@ -81,3 +81,14 @@ func Disemvowel(comment string) string {
 	}
 	return res
 }
+
+//https://www.codewars.com/kata/59cfc09a86a6fdf6df0000f1
+func Capitalize(st string, arr []int) string {
+	s := []rune(st)
+	for _, b := range arr {
+		if b >= 0 && b <= len(st) {
+			s[b] = unicode.ToUpper(s[b])
+		}
+	}
+	return string(s)
+}

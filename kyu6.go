@@ -104,8 +104,8 @@ func Multiple3And5(number int) int {
 
 //https://www.codewars.com/kata/526571aae218b8ee490006f4
 func CountBits(x uint) int {
-	res := bits.OnesCount(x)
-	return res
+	//res := bits.OnesCount(x)
+	return bits.OnesCount(x)
 }
 
 //https://www.codewars.com/kata/54da5a58ea159efa38000836
@@ -144,4 +144,47 @@ func DigitalRoot(n int) int {
 		return res
 	}
 	return DigitalRoot(res)
+}
+
+//https://www.codewars.com/kata/523f5d21c841566fde000009
+func ArrayDiff(a, b []int) (res []int) {
+	// your code here
+	if len(b) == 0 || len(a) == 0 {
+		return a
+	}
+	mp := make(map[int]int, len(b))
+	for k, v := range b {
+		mp[v] = k
+	}
+	for _, v := range a {
+		if _, ok := mp[v]; ok {
+			continue
+		} else {
+			res = append(res, v)
+		}
+	}
+	return res
+}
+
+//https://www.codewars.com/kata/54bf1c2cd5b56cc47f0007a1
+func duplicate_count(s1 string) (res int) {
+	//your code goes here
+	mp := make(map[rune]int, len(s1))
+	for _, b := range strings.ToLower(s1) {
+		if mp[b] == 1 {
+			res++
+		}
+		mp[b]++
+	}
+	return res
+}
+
+func duplicate_countcel(s string) (c int) {
+	h := map[rune]int{}
+	for _, r := range strings.ToLower(s) {
+		if h[r]++; h[r] == 2 {
+			c++
+		}
+	}
+	return
 }
