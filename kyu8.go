@@ -116,3 +116,69 @@ func Litres(time float64) int {
 func Derive(a, b int) string {
 	return fmt.Sprintf("%dx^%d", a*b, b-1)
 }
+
+//https://www.codewars.com/kata/56bc28ad5bdaeb48760009b0
+func RemoveChar(word string) string {
+	return word[1:(len(word) - 1)]
+}
+
+//https://www.codewars.com/kata/57eae20f5500ad98e50002c5
+func NoSpace(word string) string {
+	var res []string
+	res = strings.Split(word, " ")
+	str := strings.Join(res, "")
+	return str
+}
+
+//https://www.codewars.com/kata/54edbc7200b811e956000556
+func CountSheeps(numbers []bool) (res int) {
+	for _, b := range numbers {
+		if b {
+			res++
+		}
+	}
+	return res
+}
+
+//https://www.codewars.com/kata/5545f109004975ea66000086
+func IsDivisible(n, x, y int) bool {
+	return n%x == 0 && n%y == 0
+}
+
+//https://www.codewars.com/kata/55a70521798b14d4750000a4
+func Greet(name string) string {
+	return fmt.Sprintf("Hello, %s how are you doing today?", name)
+}
+
+//https://www.codewars.com/kata/5715eaedb436cf560600038
+func PositiveSum(numbers []int) (res int) {
+	for _, b := range numbers {
+		if b > 0 {
+			res += b
+		}
+	}
+	return res
+}
+
+//https://www.codewars.com/kata/5265326f5fda8eb1160004c8
+func NumberToString(n int) string {
+	return fmt.Sprintf("%d", n)
+}
+
+//https://www.codewars.com/kata/56dec885c54a926dcd001095
+func Opposite(value int) int {
+	return -value
+}
+
+//https://www.codewars.com/kata/57a0e5c372292dd76d000d7e
+func RepeatStr(repetitions int, value string) string {
+	return strings.Repeat(value, repetitions)
+}
+
+//https://www.codewars.com/kata/515e271a311df0350d00000f
+func SquareSum(numbers []int) (res int) {
+	for _, b := range numbers {
+		res += b * b
+	}
+	return res
+}
