@@ -1,5 +1,9 @@
 package main
 
+import (
+	"fmt"
+)
+
 func main() {
 	//fmt.Println(Decode("IX"))
 	//fmt.Println(Decode("MMVIII"))
@@ -55,6 +59,88 @@ func main() {
 	//fmt.Println(SmallestIntegerFinder([]int{1, 23, 481}))
 	//https://www.codewars.com/kata/525c65e51bf619685c000059
 	//fmt.Println(Cakes(map[string]int{"flour": 500, "sugar": 200, "eggs": 1}, map[string]int{"flour": 1200, "sugar": 1200, "eggs": 5, "milk": 200}))
+	//fmt.Println(xor([]int{2, 1, 2, 1, 3, 5, 3}))
+	//https://www.codewars.com/kata/523f5d21c841566fde000009
+	//fmt.Println(ArrayDiff([]int{1, 2, 3}, []int{1, 2}))
+
+	//https://www.codewars.com/kata/54bf1c2cd5b56cc47f0007a1
+	//fmt.Println(duplicate_count("indivisibility"))
+
+	//fmt.Println(RGB(0, 275, 125))
+
+	//fmt.Println(CountBits(1234))
+
+	//fmt.Println(Capitalize("abcdef", []int{1, 2, 5}))
+
+	//fmt.Println(seatsInTheater(16, 11, 5, 3))
+
+	//fmt.Println(StringToArray("Robin Singh"))
+
+	fmt.Println(Derive(7, 8))
 
 }
 
+//func MakeNegative(x int) int {
+//	return
+//}
+
+func greet(p string) string {
+	if p == "Johnny" {
+		return "Hello, my love!"
+	}
+	return "Hello, " + p + "!"
+}
+
+//func RGB(r, g, b int) string {
+//	// Your code here
+//	bt := []byte{}
+//	r := hex.EncodeToString(bt[r])
+//
+//	res := hex.EncodeToString(bt)
+//	return strings.ToUpper(res)
+//}
+
+func Binarray(a []int) int {
+	//mp := map[string]int{"curr?": a[0], "range": 1, "max": 0}
+	var res []int
+
+	for i := 1; i < len(a); i++ {
+		res = append(res, a[i-1]|a[i])
+	}
+	fmt.Println(res)
+	return 0
+}
+
+func Zeros(n int) int {
+	// your code here
+	var mp map[int]int
+	count := 0
+	num := 0
+	for i := 1; i <= n; i++ {
+		if _, ok := mp[i]; ok {
+			mp[i]++
+		}
+
+		num = i
+		for num%5 == 0 {
+			count++
+			num /= 5
+		}
+	}
+	return count
+
+}
+
+//func HighAndLow(in string) string {
+//	// Code here or
+//	if len(in) == 0 {
+//		return "0 0"
+//	}
+//	mp := map[string]int{}
+//
+//	for i, _ := range in {
+//		target, _ := strconv.Atoi(string(in[i]))
+//	}
+//
+//	return "throw towel"
+//}
