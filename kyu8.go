@@ -182,3 +182,11 @@ func SquareSum(numbers []int) (res int) {
 	}
 	return res
 }
+
+//https://www.codewars.com/kata/55a70521798b14d4750000a4
+func greet(p string) string {
+	if p == "Johnny" {
+		return "Hello, my love!"
+	}
+	return "Hello, " + p + "!"
+}

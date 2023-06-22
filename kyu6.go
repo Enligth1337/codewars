@@ -7,16 +7,6 @@ import (
 	"unicode"
 )
 
-var decoder = map[rune]int{
-	'I': 1,
-	'V': 5,
-	'X': 10,
-	'L': 50,
-	'C': 100,
-	'D': 500,
-	'M': 1000,
-}
-
 //https://www.codewars.com/kata/52b757663a95b11b3d00062d
 func toWeirdCase(str string) string {
 	// Your code here and happy coding!
