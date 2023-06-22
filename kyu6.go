@@ -178,3 +178,14 @@ func duplicate_countcel(s string) (c int) {
 	}
 	return
 }
+
+//https://www.codewars.com/kata/515de9ae9dcfc28eb6000001
+func Solution(str string) (res []string) {
+	if len(str)%2 != 0 {
+		str += "_"
+	}
+	for i := 0; i < len(str); i += 2 {
+		res = append(res, str[i:i+2])
+	}
+	return res
+}
