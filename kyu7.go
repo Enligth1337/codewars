@@ -92,3 +92,10 @@ func Capitalize(st string, arr []int) string {
 	}
 	return string(s)
 }
+
+//https://www.codewars.com/kata/56606694ec01347ce800001b
+func IsTriangle(a, b, c int) bool {
+	m := []int{a, b, c}
+	sort.Ints(m)
+	return m[2] < m[0]+m[1]
+}
