@@ -190,3 +190,20 @@ func greet(p string) string {
 	}
 	return "Hello, " + p + "!"
 }
+
+//https://www.codewars.com/kata/5b853229cfde412a470000d0
+func TwiceAsOld(dadYearsOld, sonYearsOld int) (a int) {
+	a = 2 * (dadYearsOld - sonYearsOld)
+	if a > dadYearsOld {
+		return a - dadYearsOld
+	}
+	return dadYearsOld - a
+}
+
+//https://www.codewars.com/kata/5168bb5dfe9a00b126000018
+func Solutionn(word string) (res string) {
+	for i := len(word) - 1; i >= 0; i-- {
+		res += string(word[i])
+	}
+	return res
+}
