@@ -93,6 +93,19 @@ func Capitalize(st string, arr []int) string {
 	return string(s)
 }
 
+//https://www.codewars.com/kata/56747fd5cb988479af000028
+func GetMiddle(s string) string {
+	//if len(s)%2 == 0 {
+	//	return s[len(s)/2-1 : len(s)/2+1]
+	//}
+	//return s[int(len(s)/2):int(len(s)/2+1)]
+	n := len(s)
+	if n == 0 {
+		return s
+	}
+	return s[(n-1)/2 : n/2+1]
+}
+
 //https://www.codewars.com/kata/56606694ec01347ce800001b
 func IsTriangle(a, b, c int) bool {
 	m := []int{a, b, c}
