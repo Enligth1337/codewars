@@ -207,3 +207,16 @@ func Solutionn(word string) (res string) {
 	}
 	return res
 }
+
+//https://www.codewars.com/kata/568dcc3c7f12767a62000038
+func FakeBin(x string) (res string) {
+	// your code here
+	for i, _ := range x {
+		if x[i] >= '5' {
+			res += "1"
+		} else {
+			res += "0"
+		}
+	}
+	return res
+}
