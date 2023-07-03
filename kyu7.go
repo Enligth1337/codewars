@@ -112,3 +112,8 @@ func IsTriangle(a, b, c int) bool {
 	sort.Ints(m)
 	return m[2] < m[0]+m[1]
 }
+
+//https://www.codewars.com/kata/526c7363236867513f0005ca
+func IsLeapYear(year int) bool {
+	return year%400 == 0 || (year%4 == 0 && year%100 != 0)
+}
