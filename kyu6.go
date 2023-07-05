@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"math/bits"
 	"strconv"
 	"strings"
@@ -210,4 +211,13 @@ func Solution(str string) (res []string) {
 		res = append(res, str[i:i+2])
 	}
 	return res
+}
+
+//https://www.codewars.com/kata/525f50e3b73515a6db000b83
+func CreatePhoneNumber(numbers [10]uint) string {
+	var str string
+	for _, a := range numbers {
+		str += strconv.Itoa(int(a))
+	}
+	return fmt.Sprintf("(%s) %s-%s", str[0:3], str[3:6], str[6:10])
 }
