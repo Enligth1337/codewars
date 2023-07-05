@@ -37,6 +37,28 @@ func TwoSum(numbers []int, target int) [2]int {
 	return [2]int{}
 }
 
+var mp = map[rune]int{'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
+
+func Decode(roman string) (res int) {
+	if len(roman) == 1 {
+		return mp[rune(roman[0])]
+	}
+	s := []rune(roman)
+	for i := 0; i < len(roman); i++ {
+		cur := mp[s[i]]
+		next := 0
+		if i+1 < len(roman) {
+			next = mp[s[i+1]]
+		}
+		if cur < next {
+			res -= cur
+		} else {
+			res += cur
+		}
+	}
+	return res
+}
+
 //func Decode(roman string) int {
 //	if len(roman) == 0 {
 //		return 0
