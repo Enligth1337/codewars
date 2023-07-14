@@ -189,3 +189,23 @@ func Solution(str string) (res []string) {
 	}
 	return res
 }
+
+//https://www.codewars.com/kata/5526fc09a1bbd946250002dc
+func rev(s string) (result string) {
+	for _, v := range s {
+		result = string(v) + result
+	}
+	return
+}
+
+func SpinWords(str string) (res string) {
+	arr := strings.Split(str, " ")
+	for a, b := range arr {
+		if len(b) >= 5 {
+			arr[a] = rev(b)
+		}
+	}
+	res = strings.Join(arr, " ")
+
+	return res
+}
