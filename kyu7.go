@@ -117,3 +117,13 @@ func IsTriangle(a, b, c int) bool {
 func IsLeapYear(year int) bool {
 	return year%400 == 0 || (year%4 == 0 && year%100 != 0)
 }
+
+//https://www.codewars.com/kata/58941fec8afa3618c9000184
+func GrowingPlant(upSpeed, downSpeed, desiredHeight int) (res int) {
+	curr := upSpeed
+	for curr < desiredHeight {
+		res++
+		curr += upSpeed - downSpeed
+	}
+	return res + 1
+}

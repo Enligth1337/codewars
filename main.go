@@ -2,6 +2,8 @@ package main
 
 import (
 	"fmt"
+	"sort"
+	"strconv"
 )
 
 func main() {
@@ -62,33 +64,97 @@ func main() {
 	//fmt.Println(xor([]int{2, 1, 2, 1, 3, 5, 3}))
 	//https://www.codewars.com/kata/523f5d21c841566fde000009
 	//fmt.Println(ArrayDiff([]int{1, 2, 3}, []int{1, 2}))
-
 	//https://www.codewars.com/kata/54bf1c2cd5b56cc47f0007a1
 	//fmt.Println(duplicate_count("indivisibility"))
-
 	//fmt.Println(RGB(0, 275, 125))
-
 	//fmt.Println(CountBits(1234))
-
 	//fmt.Println(Capitalize("abcdef", []int{1, 2, 5}))
-
 	//fmt.Println(seatsInTheater(16, 11, 5, 3))
-
 	//fmt.Println(StringToArray("Robin Singh"))
+	//fmt.Println(Derive(7, 8))
+	//fmt.Println(RemoveChar("eloquent"))
+	////fmt.Println(CountSheeps([]bool{
+	//	true, true, true, false,
+	//	true, true, true, true,
+	//	true, false, true, false,
+	//	true, false, false, true,
+	//	true, true, true, true,
+	//	false, false, true, true,
+	//}))
+	//fmt.Println(Greet("Oleg"))
+	//fmt.Println(PositiveSum([]int{1, -2, 3, 4, 5}))
+	//fmt.Println(RepeatStr(4, "a"))
+	//fmt.Println(Solve([]int{7, 8, 7}))
 
-	fmt.Println(Derive(7, 8))
+	//fmt.Println(Solution("abc"))
+	//fmt.Println(GetMiddle("abc"))
+
+	//fmt.Println(GrowingPlant(100, 10, 910))
+
+	//fmt.Println(Decode("MMVIII"))
+
+	//fmt.Println(solution(" ", ""))
+
+	//fmt.Println(NextBigger(5275))
+
+	fmt.Println(SpinWords("Burgers are my favorite fruit"))
 
 }
 
-//func MakeNegative(x int) int {
-//	return
-//}
-
-func greet(p string) string {
-	if p == "Johnny" {
-		return "Hello, my love!"
+func NextBigger(n int) (res int) {
+	// your code here
+	s := strconv.Itoa(n)
+	var arr []int
+	for _, b := range s {
+		curr, _ := strconv.Atoi(string(b))
+		arr = append(arr, curr)
 	}
-	return "Hello, " + p + "!"
+	sort.Sort(sort.Reverse(sort.IntSlice(arr)))
+	var str string
+	for _, b := range arr {
+		str += strconv.Itoa(b)
+	}
+	res, _ = strconv.Atoi(str)
+	if res == n {
+		return -1
+	}
+	return res
+}
+
+func solution(str, ending string) bool {
+	// Your code here!
+	if len(str) > 1 || str == "" {
+		return str[(len(str)-len(ending)):] == ending
+	}
+	return false
+}
+
+var mp = map[rune]int{'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
+
+func Decode(roman string) (res int) {
+	if len(roman) == 1 {
+		return mp[rune(roman[0])]
+	}
+	s := []rune(roman)
+	res = mp[s[0]]
+	for i := 1; i < len(s); i++ {
+		if mp[s[i]] > mp[s[i-1]] {
+			res += mp[s[i]] - mp[s[i-1]]
+		} else {
+			res += mp[s[i]]
+		}
+	}
+	return res
+}
+
+func Solve(arr []int) (res int) {
+	sort.Ints(arr)
+	switch {
+	case arr[2] > arr[0]+arr[1]:
+		return arr[0] + arr[1]
+	default:
+		return arr[2]
+	}
 }
 
 //func RGB(r, g, b int) string {
