@@ -1,6 +1,9 @@
 package main
 
-import "sort"
+import (
+	"sort"
+	"unicode"
+)
 
 //https://www.codewars.com/kata/559a28007caad2ac4e000083
 func Perimeter(n int) int {
@@ -41,4 +44,35 @@ func Cakes(recipe, available map[string]int) int {
 	}
 	sort.Ints(cnt)
 	return cnt[0]
+}
+
+//https://www.codewars.com/kata/52223df9e8f98c7aa7000062
+func findRune(curr, idx int) rune {
+	target := curr + idx
+	if unicode.IsLower(rune(curr)) {
+		if target > 'z' {
+			return rune(target - 'z' + 'a' - 1)
+		} else {
+			return rune(target)
+		}
+	} else {
+		if target > 'Z' {
+			return rune(target - 'Z' + 'A' - 1)
+		} else {
+			return rune(target)
+		}
+	}
+}
+
+func Rot13(msg string) (res string) {
+	// Your code here
+	s := []rune(msg)
+	for a, b := range s {
+		if s[a] >= 'a' && s[a] <= 'z' || s[a] >= 'A' && s[a] <= 'Z' {
+			res += string(findRune(int(b), 13))
+		} else {
+			res += string(b)
+		}
+	}
+	return res
 }
