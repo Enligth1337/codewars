@@ -1,6 +1,7 @@
 package main
 
 import (
+	"math"
 	"math/bits"
 	"strconv"
 	"strings"
@@ -234,6 +235,24 @@ func intToRoman(num int) (res string) {
 			res += romanDict[b]
 			num -= b
 		}
+	}
+	return res
+}
+
+//https://www.codewars.com/kata/52fb87703c1351ebd200081f
+func WhatCentury(year string) (res string) {
+	y, _ := strconv.Atoi(year)
+	s := int(math.Ceil(float64(y) / 100))
+	res = strconv.Itoa(s)
+	l := len(res) - 1
+	if res[l-1:] != "12" && res[l:] == "2" {
+		res += "nd"
+	} else if res[l-1:] != "11" && res[l:] == "1" {
+		res += "st"
+	} else if res[l-1:] != "13" && res[l:] == "3" {
+		res += "rd"
+	} else {
+		res += "th"
 	}
 	return res
 }
