@@ -76,3 +76,13 @@ func Rot13(msg string) (res string) {
 	}
 	return res
 }
+
+//https://www.codewars.com/kata/52f787eb172a8b4ae1000a34
+func Zeros(n int) (res int) {
+	res = 0
+	for n >= 5 {
+		n /= 5
+		res += n
+	}
+	return res
+}
