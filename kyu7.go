@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"sort"
+	"strconv"
 	"strings"
 	"unicode"
 )
@@ -126,4 +127,17 @@ func GrowingPlant(upSpeed, downSpeed, desiredHeight int) (res int) {
 		curr += upSpeed - downSpeed
 	}
 	return res + 1
+}
+
+//https://www.codewars.com/kata/554b4ac871d6813a03000035
+func HighAndLow(in string) string {
+	// Code here or
+	s := strings.Split(in, " ")
+	arr := []int{}
+	for idx := range s {
+		curr, _ := strconv.Atoi(s[idx])
+		arr = append(arr, curr)
+	}
+	sort.Ints(arr)
+	return fmt.Sprintf("%d %d", arr[len(arr)-1], arr[0])
 }
