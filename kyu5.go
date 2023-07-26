@@ -1,6 +1,10 @@
 package main
 
-import "sort"
+import (
+	"encoding/hex"
+	"sort"
+	"strings"
+)
 
 //https://www.codewars.com/kata/559a28007caad2ac4e000083
 func Perimeter(n int) int {
@@ -41,4 +45,18 @@ func Cakes(recipe, available map[string]int) int {
 	}
 	sort.Ints(cnt)
 	return cnt[0]
+}
+
+//https://www.codewars.com/kata/513e08acc600c94f01000001
+func RGB(r, g, b int) string {
+	arr := [3]int{r, g, b}
+	for i := range arr {
+		if arr[i] < 0 {
+			arr[i] = 0
+		}
+		if arr[i] > 255 {
+			arr[i] = 255
+		}
+	}
+	return strings.ToUpper(hex.EncodeToString([]byte{byte(arr[0]), byte(arr[1]), byte(arr[2])}))
 }
