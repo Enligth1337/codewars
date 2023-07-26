@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"sort"
+	"strconv"
 	"strings"
 	"unicode"
 )
@@ -116,4 +117,27 @@ func IsTriangle(a, b, c int) bool {
 //https://www.codewars.com/kata/526c7363236867513f0005ca
 func IsLeapYear(year int) bool {
 	return year%400 == 0 || (year%4 == 0 && year%100 != 0)
+}
+
+//https://www.codewars.com/kata/58941fec8afa3618c9000184
+func GrowingPlant(upSpeed, downSpeed, desiredHeight int) (res int) {
+	curr := upSpeed
+	for curr < desiredHeight {
+		res++
+		curr += upSpeed - downSpeed
+	}
+	return res + 1
+}
+
+//https://www.codewars.com/kata/554b4ac871d6813a03000035
+func HighAndLow(in string) string {
+	// Code here or
+	s := strings.Split(in, " ")
+	arr := []int{}
+	for idx := range s {
+		curr, _ := strconv.Atoi(s[idx])
+		arr = append(arr, curr)
+	}
+	sort.Ints(arr)
+	return fmt.Sprintf("%d %d", arr[len(arr)-1], arr[0])
 }

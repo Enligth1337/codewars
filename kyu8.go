@@ -220,3 +220,11 @@ func FakeBin(x string) (res string) {
 	}
 	return res
 }
+
+func BonusTime(salary int, bonus bool) string {
+	// Your code here
+	if bonus {
+		return fmt.Sprintf("£%d", salary*10)
+	}
+	return fmt.Sprintf("£%d", salary)
+}

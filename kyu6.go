@@ -1,7 +1,7 @@
 package main
 
 import (
-	"fmt"
+	"math"
 	"math/bits"
 	"strconv"
 	"strings"
@@ -36,28 +36,6 @@ func TwoSum(numbers []int, target int) [2]int {
 
 	}
 	return [2]int{}
-}
-
-var mp = map[rune]int{'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
-
-func Decode(roman string) (res int) {
-	if len(roman) == 1 {
-		return mp[rune(roman[0])]
-	}
-	s := []rune(roman)
-	for i := 0; i < len(roman); i++ {
-		cur := mp[s[i]]
-		next := 0
-		if i+1 < len(roman) {
-			next = mp[s[i+1]]
-		}
-		if cur < next {
-			res -= cur
-		} else {
-			res += cur
-		}
-	}
-	return res
 }
 
 //func Decode(roman string) int {
@@ -213,11 +191,68 @@ func Solution(str string) (res []string) {
 	return res
 }
 
-//https://www.codewars.com/kata/525f50e3b73515a6db000b83
-func CreatePhoneNumber(numbers [10]uint) string {
-	var str string
-	for _, a := range numbers {
-		str += strconv.Itoa(int(a))
+//https://www.codewars.com/kata/5526fc09a1bbd946250002dc
+func rev(s string) (result string) {
+	for _, v := range s {
+		result = string(v) + result
 	}
-	return fmt.Sprintf("(%s) %s-%s", str[0:3], str[3:6], str[6:10])
+	return
+}
+
+func SpinWords(str string) (res string) {
+	arr := strings.Split(str, " ")
+	for a, b := range arr {
+		if len(b) >= 5 {
+			arr[a] = rev(b)
+		}
+	}
+	res = strings.Join(arr, " ")
+
+	return res
+}
+
+//https://www.codewars.com/kata/51b62bf6a9c58071c600001b
+var romanDict = map[int]string{
+	1000: "M",
+	900:  "CM",
+	500:  "D",
+	400:  "CD",
+	100:  "C",
+	90:   "XC",
+	50:   "L",
+	40:   "XL",
+	10:   "X",
+	9:    "IX",
+	5:    "V",
+	4:    "IV",
+	1:    "I",
+}
+
+func intToRoman(num int) (res string) {
+	sortArr := [13]int{1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1}
+	for _, b := range sortArr {
+		for num >= b {
+			res += romanDict[b]
+			num -= b
+		}
+	}
+	return res
+}
+
+//https://www.codewars.com/kata/52fb87703c1351ebd200081f
+func WhatCentury(year string) (res string) {
+	y, _ := strconv.Atoi(year)
+	s := int(math.Ceil(float64(y) / 100))
+	res = strconv.Itoa(s)
+	l := len(res) - 1
+	if res[l-1:] != "12" && res[l:] == "2" {
+		res += "nd"
+	} else if res[l-1:] != "11" && res[l:] == "1" {
+		res += "st"
+	} else if res[l-1:] != "13" && res[l:] == "3" {
+		res += "rd"
+	} else {
+		res += "th"
+	}
+	return res
 }
