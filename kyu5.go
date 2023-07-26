@@ -1,7 +1,9 @@
 package main
 
 import (
+	"encoding/hex"
 	"sort"
+	"strings"
 	"unicode"
 )
 
@@ -85,4 +87,18 @@ func Zeros(n int) (res int) {
 		res += n
 	}
 	return res
+}
+
+//https://www.codewars.com/kata/513e08acc600c94f01000001
+func RGB(r, g, b int) string {
+	arr := [3]int{r, g, b}
+	for i := range arr {
+		if arr[i] < 0 {
+			arr[i] = 0
+		}
+		if arr[i] > 255 {
+			arr[i] = 255
+		}
+	}
+	return strings.ToUpper(hex.EncodeToString([]byte{byte(arr[0]), byte(arr[1]), byte(arr[2])}))
 }
