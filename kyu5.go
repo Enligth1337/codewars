@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/hex"
+	"regexp"
 	"sort"
 	"strings"
 	"unicode"
@@ -101,4 +102,33 @@ func RGB(r, g, b int) string {
 		}
 	}
 	return strings.ToUpper(hex.EncodeToString([]byte{byte(arr[0]), byte(arr[1]), byte(arr[2])}))
+}
+
+//https://www.codewars.com/kata/526dbd6c8c0eb53254000110
+func valid(c int32) bool {
+	switch {
+	case c >= 'a' && c <= 'z':
+		return true
+	case c >= 'A' && c <= 'Z':
+		return true
+	case c >= '0' && c <= '9':
+		return true
+	default:
+		return false
+	}
+}
+
+func alphanumeric(str string) (res bool) {
+	res = regexp.MustCompile(`^[a-zA-Z0-9]+$`).MatchString(str)
+	//if str == "" {
+	//	return false
+	//}
+	//for _, b := range str {
+	//	if valid(b) {
+	//		continue
+	//	}
+	//	return false
+	//}
+	//return true
+	return res
 }

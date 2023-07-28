@@ -141,3 +141,15 @@ func HighAndLow(in string) string {
 	sort.Ints(arr)
 	return fmt.Sprintf("%d %d", arr[len(arr)-1], arr[0])
 }
+
+//https://www.codewars.com/kata/571c1e847beb0a8f8900153d
+func RakeGarden(garden string) string {
+	s := strings.Split(garden, " ")
+	for i := range s {
+		if s[i] == "rock" || s[i] == "gravel" {
+			continue
+		}
+		s[i] = "gravel"
+	}
+	return strings.Join(s, " ")
+}
