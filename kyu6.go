@@ -256,3 +256,20 @@ func WhatCentury(year string) (res string) {
 	}
 	return res
 }
+
+//https://www.codewars.com/kata/5526fc09a1bbd946250002dc
+func FindOutlier(integers []int) int {
+	var arr []int
+	odd := 0
+	for i := range integers {
+		if integers[i]%2 == 0 {
+			arr = append(arr, integers[i])
+		} else {
+			odd = integers[i]
+		}
+	}
+	if len(arr) == 1 {
+		return arr[0]
+	}
+	return odd
+}
