@@ -2,13 +2,14 @@ package main
 
 import (
 	"encoding/hex"
+	"math"
 	"regexp"
 	"sort"
 	"strings"
 	"unicode"
 )
 
-//https://www.codewars.com/kata/559a28007caad2ac4e000083
+// https://www.codewars.com/kata/559a28007caad2ac4e000083
 func Perimeter(n int) int {
 	// your code
 	if n == 0 {
@@ -33,7 +34,7 @@ func Perimeter(n int) int {
 	return res
 }
 
-//https://www.codewars.com/kata/525c65e51bf619685c000059
+// https://www.codewars.com/kata/525c65e51bf619685c000059
 func Cakes(recipe, available map[string]int) int {
 	var cnt []int
 	for i, _ := range recipe {
@@ -49,7 +50,7 @@ func Cakes(recipe, available map[string]int) int {
 	return cnt[0]
 }
 
-//https://www.codewars.com/kata/52223df9e8f98c7aa7000062
+// https://www.codewars.com/kata/52223df9e8f98c7aa7000062
 func findRune(curr, idx int) rune {
 	target := curr + idx
 	if unicode.IsLower(rune(curr)) {
@@ -80,7 +81,7 @@ func Rot13(msg string) (res string) {
 	return res
 }
 
-//https://www.codewars.com/kata/52f787eb172a8b4ae1000a34
+// https://www.codewars.com/kata/52f787eb172a8b4ae1000a34
 func Zeros(n int) (res int) {
 	res = 0
 	for n >= 5 {
@@ -90,7 +91,7 @@ func Zeros(n int) (res int) {
 	return res
 }
 
-//https://www.codewars.com/kata/513e08acc600c94f01000001
+// https://www.codewars.com/kata/513e08acc600c94f01000001
 func RGB(r, g, b int) string {
 	arr := [3]int{r, g, b}
 	for i := range arr {
@@ -104,7 +105,7 @@ func RGB(r, g, b int) string {
 	return strings.ToUpper(hex.EncodeToString([]byte{byte(arr[0]), byte(arr[1]), byte(arr[2])}))
 }
 
-//https://www.codewars.com/kata/526dbd6c8c0eb53254000110
+// https://www.codewars.com/kata/526dbd6c8c0eb53254000110
 func valid(c int32) bool {
 	switch {
 	case c >= 'a' && c <= 'z':
@@ -131,4 +132,21 @@ func alphanumeric(str string) (res bool) {
 	//}
 	//return true
 	return res
+}
+
+// https://www.codewars.com/kata/54521e9ec8e60bc4de000d6c
+func MaximumSubarraySum(numbers []int) int {
+	cur := float64(numbers[0])
+	sum := 0
+	for i := 0; i < len(numbers); i++ {
+		sum += numbers[i]
+		cur = math.Max(float64(sum), cur)
+		if sum < 0 {
+			sum = 0
+		}
+	}
+	if cur < 0 {
+		return 0
+	}
+	return int(cur)
 }

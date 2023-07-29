@@ -300,3 +300,20 @@ func IsValidWalk(walk []rune) bool {
 	}
 	return curr == [2]int{0, 0}
 }
+
+// https://www.codewars.com/kata/54b42f9314d9229fd6000d9c
+func DuplicateEncode(word string) (res string) {
+	m := make(map[rune]int)
+	word = strings.ToLower(word)
+	for _, b := range word {
+		m[b]++
+	}
+	for _, b := range word {
+		if m[b] > 1 {
+			res += ")"
+			continue
+		}
+		res += "("
+	}
+	return res
+}
