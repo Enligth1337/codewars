@@ -8,7 +8,7 @@ import (
 	"unicode"
 )
 
-//https://www.codewars.com/kata/52b757663a95b11b3d00062d
+// https://www.codewars.com/kata/52b757663a95b11b3d00062d
 func toWeirdCase(str string) string {
 	// Your code here and happy coding!
 	var res string
@@ -22,7 +22,7 @@ func toWeirdCase(str string) string {
 	return res
 }
 
-//https://www.codewars.com/kata/52c31f8e6605bcc646000082
+// https://www.codewars.com/kata/52c31f8e6605bcc646000082
 func TwoSum(numbers []int, target int) [2]int {
 	a := map[int]int{}
 
@@ -53,7 +53,7 @@ func TwoSum(numbers []int, target int) [2]int {
 //	return first + Decode(roman[1:])
 //}
 
-//https://www.codewars.com/kata/5ce399e0047a45001c853c2b
+// https://www.codewars.com/kata/5ce399e0047a45001c853c2b
 func PartsSums(ls []uint64) []uint64 {
 	// your code here
 	res := make([]uint64, len(ls)+1)
@@ -64,7 +64,7 @@ func PartsSums(ls []uint64) []uint64 {
 	return res
 }
 
-//https://www.codewars.com/kata/556deca17c58da83c00002db
+// https://www.codewars.com/kata/556deca17c58da83c00002db
 func Tribonacci(signature [3]float64, n int) []float64 {
 	// your code here
 	if n < 3 {
@@ -79,7 +79,7 @@ func Tribonacci(signature [3]float64, n int) []float64 {
 	return res
 }
 
-//https://www.codewars.com/kata/514b92a657cdc65150000006
+// https://www.codewars.com/kata/514b92a657cdc65150000006
 func Multiple3And5(number int) int {
 	if number < 0 {
 		return 0
@@ -93,13 +93,13 @@ func Multiple3And5(number int) int {
 	return res
 }
 
-//https://www.codewars.com/kata/526571aae218b8ee490006f4
+// https://www.codewars.com/kata/526571aae218b8ee490006f4
 func CountBits(x uint) int {
 	//res := bits.OnesCount(x)
 	return bits.OnesCount(x)
 }
 
-//https://www.codewars.com/kata/54da5a58ea159efa38000836
+// https://www.codewars.com/kata/54da5a58ea159efa38000836
 func FindOdd(seq []int) int {
 	// your code here
 	res := make(map[int]int)
@@ -119,7 +119,7 @@ func FindOdd(seq []int) int {
 	return 0
 }
 
-//https://www.codewars.com/kata/541c8630095125aba6000c00
+// https://www.codewars.com/kata/541c8630095125aba6000c00
 func DigitalRoot(n int) int {
 	// ...
 	if n < 10 {
@@ -137,7 +137,7 @@ func DigitalRoot(n int) int {
 	return DigitalRoot(res)
 }
 
-//https://www.codewars.com/kata/523f5d21c841566fde000009
+// https://www.codewars.com/kata/523f5d21c841566fde000009
 func ArrayDiff(a, b []int) (res []int) {
 	// your code here
 	if len(b) == 0 || len(a) == 0 {
@@ -157,7 +157,7 @@ func ArrayDiff(a, b []int) (res []int) {
 	return res
 }
 
-//https://www.codewars.com/kata/54bf1c2cd5b56cc47f0007a1
+// https://www.codewars.com/kata/54bf1c2cd5b56cc47f0007a1
 func duplicate_count(s1 string) (res int) {
 	//your code goes here
 	mp := make(map[rune]int, len(s1))
@@ -180,7 +180,7 @@ func duplicate_countcel(s string) (c int) {
 	return
 }
 
-//https://www.codewars.com/kata/515de9ae9dcfc28eb6000001
+// https://www.codewars.com/kata/515de9ae9dcfc28eb6000001
 func Solution(str string) (res []string) {
 	if len(str)%2 != 0 {
 		str += "_"
@@ -191,7 +191,7 @@ func Solution(str string) (res []string) {
 	return res
 }
 
-//https://www.codewars.com/kata/5526fc09a1bbd946250002dc
+// https://www.codewars.com/kata/5526fc09a1bbd946250002dc
 func rev(s string) (result string) {
 	for _, v := range s {
 		result = string(v) + result
@@ -211,7 +211,7 @@ func SpinWords(str string) (res string) {
 	return res
 }
 
-//https://www.codewars.com/kata/51b62bf6a9c58071c600001b
+// https://www.codewars.com/kata/51b62bf6a9c58071c600001b
 var romanDict = map[int]string{
 	1000: "M",
 	900:  "CM",
@@ -239,7 +239,7 @@ func intToRoman(num int) (res string) {
 	return res
 }
 
-//https://www.codewars.com/kata/52fb87703c1351ebd200081f
+// https://www.codewars.com/kata/52fb87703c1351ebd200081f
 func WhatCentury(year string) (res string) {
 	y, _ := strconv.Atoi(year)
 	s := int(math.Ceil(float64(y) / 100))
@@ -257,7 +257,7 @@ func WhatCentury(year string) (res string) {
 	return res
 }
 
-//https://www.codewars.com/kata/5526fc09a1bbd946250002dc
+// https://www.codewars.com/kata/5526fc09a1bbd946250002dc
 func FindOutlier(integers []int) int {
 	var arr []int
 	odd := 0
@@ -272,4 +272,31 @@ func FindOutlier(integers []int) int {
 		return arr[0]
 	}
 	return odd
+}
+
+// https://www.codewars.com/kata/587731fda577b3d1b0001196
+func CamelCase(s string) (res string) {
+	if s == "" {
+		return ""
+	}
+	arr := strings.Split(strings.Trim(s, " "), " ")
+	for _, b := range arr {
+		res += strings.ToUpper(string(b[0])) + b[1:]
+	}
+	return res
+}
+
+// https://www.codewars.com/kata/54da539698b8a2ad76000228
+func IsValidWalk(walk []rune) bool {
+	if len(walk) != 10 {
+		return false
+	}
+	m := map[rune][]int{'n': {0, 1}, 's': {0, -1}, 'w': {1, 0}, 'e': {-1, 0}}
+	curr := [2]int{0, 0}
+	for i := 0; i < 10; i++ {
+		step := m[walk[i]]
+		curr[0], curr[1] = step[0]+curr[0], step[1]+curr[1]
+
+	}
+	return curr == [2]int{0, 0}
 }
