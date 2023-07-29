@@ -150,3 +150,32 @@ func MaximumSubarraySum(numbers []int) int {
 	}
 	return int(cur)
 }
+
+// https://www.codewars.com/kata/52597aa56021e91c93000cb0/
+func MoveZeros(arr []int) []int {
+	res := make([]int, len(arr))
+	cur := 0
+	for i := range arr {
+		if arr[i] != 0 {
+			res[cur] = arr[i]
+			cur++
+		}
+	}
+	//l := len(arr)
+	//if l <= 1 {
+	//	return arr
+	//}
+	//for i, b := range arr {
+	//	if b == 0 {
+	//		for j := i; j < l; j++ {
+	//			if arr[j] > 0 || arr[j] < 0 {
+	//				arr[i] = arr[j]
+	//				arr[j] = 0
+	//				break
+	//			}
+	//		}
+	//
+	//	}
+	//}
+	return res
+}
