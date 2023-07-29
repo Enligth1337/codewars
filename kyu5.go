@@ -2,10 +2,12 @@ package main
 
 import (
 	"encoding/hex"
+	"fmt"
 	"math"
 	"regexp"
 	"sort"
 	"strings"
+	"time"
 	"unicode"
 )
 
@@ -178,4 +180,16 @@ func MoveZeros(arr []int) []int {
 	//	}
 	//}
 	return res
+}
+
+// https://www.codewars.com/kata/52685f7382004e774f0001f7
+func HumanReadableTime(seconds int) string {
+	// your code here
+	duration := time.Second * time.Duration(seconds)
+	h := duration / time.Hour
+	duration -= h * time.Hour
+	m := duration / time.Minute
+	duration -= m * time.Minute
+	s := int(duration / time.Second)
+	return fmt.Sprintf("%02d:%02d:%02d", h, m, s)
 }

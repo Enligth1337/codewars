@@ -317,3 +317,21 @@ func DuplicateEncode(word string) (res string) {
 	}
 	return res
 }
+
+// https://www.codewars.com/kata/5262119038c0985a5b00029f
+func IsPrime(n int) bool {
+	//your code here
+	if n == 2 {
+		return true
+	}
+	if n < 2 || n%2 == 0 {
+		return false
+	}
+	sq := int(math.Sqrt(float64(n)))
+	for i := 2; i <= sq; i++ {
+		if n%i == 0 {
+			return false
+		}
+	}
+	return true
+}
