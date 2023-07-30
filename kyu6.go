@@ -335,3 +335,66 @@ func IsPrime(n int) bool {
 	}
 	return true
 }
+
+// https://www.codewars.com/kata/55bf01e5a717a0d57e0000ec
+func Persistence(n int) (res int) {
+	// your code
+	cur := n
+	var s string
+	for i := 1; cur >= 10; i++ {
+		s = strconv.Itoa(n)
+		n = 1
+		res = i
+		for j := 0; j < len(s); j++ {
+			n *= int(s[j] - '0')
+			cur = n
+		}
+	}
+	return res
+}
+
+// https://www.codewars.com/kata/55c45be3b2079eccff00010f
+func Order(sentence string) string {
+	by := strings.Split(sentence, " ")
+	l := len(by)
+	res := make([]string, l)
+	for _, b := range by {
+		for j, _ := range b {
+			if b[j] > '0' && b[j] <= '9' {
+				res[int(b[j]-'1')] = b
+				break
+			}
+		}
+	}
+	return strings.Join(res, " ")
+}
+
+// https://www.codewars.com/kata/585d7d5adb20cf33cb000235
+func FindUniq(arr []float32) float32 {
+	// Do the magic
+	m := make(map[float32]int)
+	for i := range arr {
+		m[arr[i]]++
+	}
+	for k, v := range m {
+		if v == 1 {
+			return k
+		}
+	}
+	return 0
+}
+
+// https://www.codewars.com/kata/5839edaa6754d6fec10000a2
+func FindMissingLetter(chars []rune) rune {
+	if len(chars) < 1 {
+		return chars[0]
+	}
+	cur := chars[0]
+	for i := range chars {
+		if cur != chars[i] {
+			return cur
+		}
+		cur += 1
+	}
+	return chars[0]
+}

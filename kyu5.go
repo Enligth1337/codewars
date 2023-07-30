@@ -1,9 +1,11 @@
 package main
 
 import (
+	"encoding/binary"
 	"encoding/hex"
 	"fmt"
 	"math"
+	"net"
 	"regexp"
 	"sort"
 	"strings"
@@ -192,4 +194,12 @@ func HumanReadableTime(seconds int) string {
 	duration -= m * time.Minute
 	s := int(duration / time.Second)
 	return fmt.Sprintf("%02d:%02d:%02d", h, m, s)
+}
+
+// https://www.codewars.com/kata/52e88b39ffb6ac53a400022e
+func Int32ToIp(n uint32) string {
+	// your code here
+	ip := make(net.IP, 4)
+	binary.BigEndian.PutUint32(ip, n)
+	return ip.String()
 }
