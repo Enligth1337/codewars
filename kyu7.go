@@ -169,3 +169,9 @@ func ReverseWords(str string) string {
 	}
 	return strings.Join(s, " ")
 }
+
+// https://www.codewars.com/kata/5174a4c0f2769dd8b1000003/
+func SortNumbers(numbers []int) []int {
+	sort.Ints(numbers)
+	return numbers
+}

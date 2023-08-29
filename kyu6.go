@@ -398,3 +398,9 @@ func FindMissingLetter(chars []rune) rune {
 	}
 	return chars[0]
 }
+
+// https://www.codewars.com/kata/5a58ca28e626c55ae000018a
+func AreaOfPolygonInsideCircle(circleRadius float64, numberOfSides int) float64 {
+	// your code here
+	return math.Round(((float64(numberOfSides)*math.Pow(2*circleRadius*math.Sin(math.Pi/float64(numberOfSides)), 2))/(4*math.Tan(math.Pi/float64(numberOfSides))))*1000) / 1000
+}
